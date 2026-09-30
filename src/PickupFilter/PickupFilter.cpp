@@ -79,7 +79,11 @@ static __int64 __fastcall PD_Handler(__int64 a1, __int64 a2)
 
         // 名单判定与日志都可能需要 name；仅日志关闭且过滤关闭时可省去转换。
         if (logging || filter)
-            InteeBtn::ReadIl2CppUtf8(*(__int64*)(a2 + 0x18), nameUtf8, 128);
+            InteeBtn::ReadIl2CppUtf8(*(__int64*)(a2 + 0x28), nameUtf8, 128);
+
+        // icon 槽位在部分变体上返回空，回退到 +0x18 的图标名。
+        if (!iconUtf8[0])
+            InteeBtn::ReadIl2CppUtf8(*(__int64*)(a2 + 0x18), iconUtf8, 64);
 
         if (filter) {
             // 名单判定：黑名单 > 白名单 > 默认（命中目标图标族才拦）。

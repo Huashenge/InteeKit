@@ -29,13 +29,13 @@ namespace Offsets
     namespace RVA
     {
         // 硬编码 RVA，游戏更新后需同步；可用 Scanner 签名定位替代。
-        inline constexpr uintptr_t PickupDataAdd    = 0xF4944B0;
+        inline constexpr uintptr_t PickupDataAdd    = 0x9F621A0;
 
-        inline constexpr uintptr_t BtnDispatch        = 0xF496C80;
+        inline constexpr uintptr_t BtnDispatch        = 0x9F6A9C0;
 
-        // 按钮对象接口类指针槽 qword_1455C8B38（InteeBtn 查表用），
+        // 按钮对象接口类指针槽 qword_1457D3330（InteeBtn 查表用），
         // 运行期由 il2cpp 填充。
-        inline constexpr uintptr_t InteeBtnIfaceKlass = 0x55C8B38;
+        inline constexpr uintptr_t InteeBtnIfaceKlass = 0x57D3330;
 
     }
 }

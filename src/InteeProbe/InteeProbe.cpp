@@ -52,9 +52,9 @@ static bool EvalBtnFields(__int64 a2, bool logging)
     char iconUtf8[96] = {};
 
     __try {
-        // 文本走字段（变体布局：+0x18 物品名 / +0x20 交互文本）。
-        InteeBtn::ReadIl2CppUtf8(*(__int64*)(a2 + 0x18), nameUtf8, 96);
-        InteeBtn::ReadIl2CppUtf8(*(__int64*)(a2 + 0x20), dispUtf8, 96);
+        // 文本走字段（变体布局：+0x28 物品名 / +0x18 图标名）。
+        InteeBtn::ReadIl2CppUtf8(*(__int64*)(a2 + 0x28), nameUtf8, 96);
+        InteeBtn::ReadIl2CppUtf8(*(__int64*)(a2 + 0x18), dispUtf8, 96);
     }
     __except (EXCEPTION_EXECUTE_HANDLER) {
         return false;   // 读失败不拦截，放行

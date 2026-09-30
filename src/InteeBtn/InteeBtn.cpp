@@ -11,7 +11,7 @@
 // 方法调用走对象内嵌的手工接口表。查表与调用复刻游戏反汇编
 //（loc_14F496D1B）：
 //   klass    = [obj]
-//   接口表   @ klass+0x10，每项 16 字节 {接口类指针, 槽位基址}
+//   接口表   @ klass+0x88，每项 16 字节 {接口类指针, 槽位基址}
 //   接口数   u16 @ klass+0xC2；方法数 u16 @ klass+0xBE
 //   fn       = [klass + 8*(off + slot) + 0xD0]
 //   method   = [klass + 8*(off + mcount + slot) + 0xD0]
@@ -75,7 +75,7 @@ bool InteeBtn::CallGetter(void* btn, int slot, __int64* out)
         if (!klass) return false;
         uint32_t ifaceCnt = *(uint16_t*)(klass + 0xC2);
         uint32_t mcount = *(uint16_t*)(klass + 0xBE);
-        uint8_t* map = *(uint8_t**)(klass + 0x10);
+        uint8_t* map = *(uint8_t**)(klass + 0x88);
         if (!map || ifaceCnt == 0) return false;
 
         for (uint32_t i = 0; i < ifaceCnt * 16u; i += 16) {
